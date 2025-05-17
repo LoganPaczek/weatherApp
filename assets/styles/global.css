@@ -2,3 +2,27 @@ body{
     background: rgb(38,88,119);
     background: linear-gradient(90deg, rgba(38,88,119,1) 2%, rgba(70,163,221,1) 28%); 
 }
+
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-space-between{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
+.full-width{
+    width: 100%;
+}
+
+.full-height{
+    height: 100%;
+}

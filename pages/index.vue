@@ -1,24 +1,24 @@
 <template>
-    <header id="header">
+    <header id="header" class="flex-center flex-column">
         <input type="text" name="city" id="city" value="Frévent" disabled>
         <p id="currentTemp">17°</p>
         <p id="currentWeather">Brouillard</p>
     </header>
 
     <div id="weatherDataContainer">
-        <div id="leftPart">
-            <div id="leftPartTopSide">
+        <div id="leftPart" class="flex-space-between flex-column">
+            <div id="leftPartTopSide" class="full-width">
 
             </div>
-            <div id="leftPartBottomSide">
-                <div id="bottomSideLeftPart">
+            <div id="leftPartBottomSide" class="flex-space-between full-width">
+                <div id="bottomSideLeftPart" class="full-height">
 
                 </div>
-                <div id="bottomSideRightPart">
-                    <div id="airQuality">
+                <div id="bottomSideRightPart" class="flex-space-between flex-column full-height">
+                    <div id="airQuality" class="full-width">
 
                     </div>
-                    <div id="sunsetAndFeelsLikeContainer">
+                    <div id="sunsetAndFeelsLikeContainer" class="full-width">
                         
                     </div>
                 </div>
@@ -40,14 +40,11 @@
 </template>
 
 <style scoped lang="scss">
+    @use '/assets/styles/variables' as v;
+
     header#header{
-        width: 100%;
         height: 15%;
         background-color: green;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
         color: #FFFFFF;
 
         input{
@@ -65,7 +62,6 @@
     }
 
     #weatherDataContainer{
-        width: 100%;
         height: 75%;
         background-color: blue;
         display: flex;
@@ -74,47 +70,32 @@
 
         #leftPart{
             width: 55%;
-            height: 100%;
             background-color: chocolate;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
 
             #leftPartTopSide{
-                width: 100%;
                 height: 35%;
                 background-color: lightgreen;
             }
 
             #leftPartBottomSide{
-                width: 100%;
                 height: 60%;
                 background-color: aqua;
-                display: flex;
-                justify-content: space-between;
 
                 #bottomSideLeftPart{
-                    height: 100%;
                     width: 40%;
                     background-color: lightcoral;
                 }
 
                 #bottomSideRightPart{
-                    height: 100%;
                     width: 55%;
                     background-color: lightpink;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
 
                     #airQuality{
-                        width: 100%;
                         height: 35%; // Hauteur définie ici
                         background-color: lightgrey;
                     }
 
                     #sunsetAndFeelsLikeContainer{
-                        width: 100%;
                         height: 55%;
                         background-color: rgb(36, 218, 0);
                     }
@@ -124,7 +105,6 @@
 
         #rightPart{
             width: 35%;
-            height: 100%;
             background-color: lightblue;
             display: flex;
             flex-direction: column;
@@ -132,12 +112,10 @@
 
             #rightPartTopSide{
                 height: 61%;
-                width: 100%;
                 background-color: brown;
             }
 
             #rightPartBottomSide{
-                width: 100%;
                 height: 33%;
                 background-color: lightyellow;
             }
@@ -145,7 +123,6 @@
     }
 
     footer#footer{
-        width: 100%;
         height: 10%;
         background-color: yellow;
     }
@@ -174,7 +151,7 @@
             height: 81%;
             
             #leftPart{
-                width: 100%;
+                width: v.$full-percentage-value;
                 height: 75%;
 
                 #leftPartTopSide{
@@ -192,12 +169,12 @@
 
             #rightPart{
                 flex-direction: row;
-                width: 100%;
+                width: v.$full-percentage-value;
                 height: 30%;
                 margin-top: 20px;
             
                 #rightPartTopSide{
-                    height: 100%;
+                    height: v.$full-percentage-value;
                 }
             }
         }
@@ -214,11 +191,11 @@
                     flex-direction: column;
 
                     #bottomSideLeftPart{
-                        width: 100%;
+                        width: v.$full-percentage-value;
                     }
 
                     #bottomSideRightPart{
-                        width: 100%;
+                        width: v.$full-percentage-value;
                     }
                 }
             }
