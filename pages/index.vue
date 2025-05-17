@@ -1,8 +1,44 @@
+<script setup>
+import { onMounted, ref } from 'vue';
+
+const weatherData = ref(null); // Stocker les données météo
+const error = ref(null); // Stocker les erreurs
+
+onMounted(async () => {
+  const config = useRuntimeConfig();
+  const url = `${config.public.apiBase}?q=Paris&appid=${config.public.apiKey}&units=metric`;
+
+  try {
+    // Effectuer la requête avec fetch
+    const response = await fetch(url);
+
+    // Vérifier si la réponse est OK
+    if (!response.ok) {
+      throw new Error(`Erreur HTTP : ${response.status}`);
+    }
+
+    // Convertir la réponse en JSON
+    const data = await response.json();
+
+    // Stocker les données dans weatherData
+    weatherData.value = data;
+  } catch (err) {
+    // Gérer les erreurs
+    console.error("Erreur lors de la requête :", err);
+    error.value = err.message;
+  }
+});
+</script>
+
 <template>
     <header id="header" class="flex-center flex-column">
         <input type="text" name="city" id="city" value="Frévent" disabled>
-        <p id="currentTemp">17°</p>
-        <p id="currentWeather">Brouillard</p>
+        <p id="currentTemp">
+          {{ weatherData?.main?.temp ? Math.round(weatherData.main.temp) + '°C' : 'Chargement...' }}
+        </p>
+        <p id="currentWeather">
+          {{ weatherData?.weather[0]?.description || 'Chargement...' }}
+        </p>
     </header>
 
     <div id="weatherDataContainer">
