@@ -8,7 +8,6 @@
     .container{
         width: 100%;
         height: 100vh;
-        background-color: red;
     }
 
     @media screen and (max-width: 768px) {

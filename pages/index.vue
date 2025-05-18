@@ -2,26 +2,27 @@
 import { onMounted, ref } from 'vue';
 
 const weatherData = ref(null); // Stocker les données météo
+const forecasts = ref(null);
 const error = ref(null); // Stocker les erreurs
 
 onMounted(async () => {
   const config = useRuntimeConfig();
-  const url = `${config.public.apiBase}?q=Paris&appid=${config.public.apiKey}&units=metric`;
-
+  const url = `/api/weather?q=Frévent&appid=${config.public.apiKey}&units=metric`;
+  const forecastUrl = `/api/forecast?q=Frévent&appid=${config.public.apiKey}&units=metric`;
+  
   try {
     // Effectuer la requête avec fetch
-    const response = await fetch(url);
-
-    // Vérifier si la réponse est OK
-    if (!response.ok) {
-      throw new Error(`Erreur HTTP : ${response.status}`);
-    }
+    const response1 = await fetch(url);
+    const response2 = await fetch(forecastUrl);
 
     // Convertir la réponse en JSON
-    const data = await response.json();
+    const data1 = await response1.json();
+    const data2 = await response2.json();
 
-    // Stocker les données dans weatherData
-    weatherData.value = data;
+    // Stocker les données
+    weatherData.value = data1;
+    forecasts.value = data2;
+
   } catch (err) {
     // Gérer les erreurs
     console.error("Erreur lors de la requête :", err);
@@ -37,14 +38,14 @@ onMounted(async () => {
           {{ weatherData?.main?.temp ? Math.round(weatherData.main.temp) + '°C' : 'Chargement...' }}
         </p>
         <p id="currentWeather">
-          {{ weatherData?.weather[0]?.description || 'Chargement...' }}
+          {{ weatherData?.weather[0]?.main || 'Chargement...' }}
         </p>
     </header>
 
     <div id="weatherDataContainer">
         <div id="leftPart" class="flex-space-between flex-column">
             <div id="leftPartTopSide" class="full-width">
-
+                <HourlyForecast v-if="forecasts" :forecasts="forecasts"/>
             </div>
             <div id="leftPartBottomSide" class="flex-space-between full-width">
                 <div id="bottomSideLeftPart" class="full-height">
@@ -99,18 +100,18 @@ onMounted(async () => {
 
     #weatherDataContainer{
         height: 75%;
-        background-color: blue;
+        // background-color: blue;
         display: flex;
         justify-content: space-around;
         align-items: stretch; // Assure que les enfants s'étirent uniformément
 
         #leftPart{
             width: 55%;
-            background-color: chocolate;
+            // background-color: chocolate;
 
             #leftPartTopSide{
-                height: 35%;
-                background-color: lightgreen;
+                height: 37%;
+                // background-color: lightgreen;
             }
 
             #leftPartBottomSide{
@@ -191,7 +192,7 @@ onMounted(async () => {
                 height: 75%;
 
                 #leftPartTopSide{
-                    height: 30%;
+                    height: 35%;
                 }
 
                 #leftPartBottomSide{
