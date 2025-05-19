@@ -1,20 +1,14 @@
 <script setup>
+  import { useDateUtils } from '#imports';
+
+  const { getHour, getMinute } = useDateUtils();
+
   const props = defineProps({
     weather : {
       type: Object,
       required: true
     }
   })
-
-  const getHour = (timestamp) => {
-        const date = new Date(timestamp * 1000);
-        return date.getHours();
-  };
-
-  const getMinute = (timestamp) => {
-      const date = new Date(timestamp * 1000);
-      return date.getMinutes();
-  };
 </script>
 
 <template>

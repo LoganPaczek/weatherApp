@@ -1,15 +1,14 @@
 <script setup>
+    import { useDateUtils } from '#imports';
+    
+    const { getHour } = useDateUtils();
+
     const props = defineProps({
         forecasts : {
             type: Object,
             required : true
         }
     })
-
-    const getHour = (timestamp) => {
-        const date = new Date(timestamp * 1000);
-        return date.getHours();
-    };
 </script>
 
 <template>
