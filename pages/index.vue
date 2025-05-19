@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 
+const city = ref("Frévent");
 const weatherData = useState('weatherData', () => null); // État global pour les données météo
 const forecasts = useState('forecastsData', () => null); // État global pour les données de forecasts
 const error = ref(null); // Stocker les erreurs
@@ -19,9 +20,10 @@ onMounted(async () => {
     const data1 = await response1.json();
     const data2 = await response2.json();
 
+
     // Stocker les données
     weatherData.value = data1;
-    forecasts.value = data2;
+    forecasts.value = data2;    
 
   } catch (err) {
     // Gérer les erreurs
@@ -53,7 +55,7 @@ onMounted(async () => {
                 </div>
                 <div id="bottomSideRightPart" class="flex-space-between flex-column full-height">
                     <div id="airQuality" class="full-width">
-
+                        <AirQuality/>
                     </div>
                     <div id="sunsetAndFeelsLikeContainer" class="full-width flex-space-between">
                         <Sunset v-if="weatherData"/>
@@ -126,7 +128,6 @@ onMounted(async () => {
 
                     #airQuality{
                         height: 35%; // Hauteur définie ici
-                        background-color: lightgrey;
                     }
 
                     #sunsetAndFeelsLikeContainer{
@@ -165,7 +166,7 @@ onMounted(async () => {
             justify-content: space-between;
             
             #leftPart{
-                width: 60%;
+                width: 61%;
             }
 
             #rightPart{
@@ -193,9 +194,10 @@ onMounted(async () => {
 
                 #leftPartBottomSide{
                     height: 65%;
+                    margin-top: 20px;
 
                     #bottomSideRightPart{
-                        width: 58%;
+                        width: 55%;
                     }
                 }
             }
@@ -217,7 +219,7 @@ onMounted(async () => {
         }
     }
 
-    @media screen and (max-width: 500px){
+    @media screen and (max-width: 600px){
         #weatherDataContainer{
             #leftPart{
                 #leftPartBottomSide{

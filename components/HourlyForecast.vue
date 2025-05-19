@@ -16,7 +16,7 @@
             <div v-for="(forecast) in forecastData.list.slice(0,10)" class="hourly_weather">
                 <p>{{ getHour(forecast.dt) }}:00</p>
                 <img :src="`assets/images/${forecast.weather[0].main}.png`">
-                <p class="temperature">{{ Math.round((forecast.main.temp_min + forecast.main.temp_max) / 2) }}</p>
+                <p class="temperature">{{ Math.round((forecast.main.temp_min + forecast.main.temp_max) / 2) }}°</p>
             </div>
         </div>
     </div>
