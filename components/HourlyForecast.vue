@@ -2,13 +2,7 @@
     import { useDateUtils } from '#imports';
     
     const { getHour } = useDateUtils();
-
-    const props = defineProps({
-        forecasts : {
-            type: Object,
-            required : true
-        }
-    })
+    const forecastData = useState('forecastsData');
 </script>
 
 <template>
@@ -19,7 +13,7 @@
         />
 
         <div id="hourlyForecasts" class="flex-space-between">
-            <div v-for="(forecast) in forecasts.list.slice(0,10)" class="hourly_weather">
+            <div v-for="(forecast) in forecastData.list.slice(0,10)" class="hourly_weather">
                 <p>{{ getHour(forecast.dt) }}:00</p>
                 <img :src="`assets/images/${forecast.weather[0].main}.png`">
                 <p class="temperature">{{ Math.round((forecast.main.temp_min + forecast.main.temp_max) / 2) }}</p>

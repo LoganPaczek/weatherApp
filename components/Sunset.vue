@@ -2,13 +2,7 @@
   import { useDateUtils } from '#imports';
 
   const { getHour, getMinute } = useDateUtils();
-
-  const props = defineProps({
-    weather : {
-      type: Object,
-      required: true
-    }
-  })
+  const  weatherData = useState('weatherData');
 </script>
 
 <template>
@@ -20,9 +14,9 @@
 
         <div id="sunset-container">
             <p id="sunset" class="text-highlight-1">
-                {{ getHour(weather.sys.sunset) }}
+                {{ getHour(weatherData.sys.sunset) }}
                 :
-                {{ getMinute(weather.sys.sunset) }}
+                {{ getMinute(weatherData.sys.sunset) }}
             </p>
 
             <!-- <SunArc :progress="0.3"/> -->

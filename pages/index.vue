@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 
-const weatherData = ref(null); // Stocker les données météo
-const forecasts = ref(null);
+const weatherData = useState('weatherData', () => null); // État global pour les données météo
+const forecasts = useState('forecastsData', () => null); // État global pour les données de forecasts
 const error = ref(null); // Stocker les erreurs
 
 onMounted(async () => {
@@ -45,7 +45,7 @@ onMounted(async () => {
     <div id="weatherDataContainer">
         <div id="leftPart" class="flex-space-between flex-column">
             <div id="leftPartTopSide" class="full-width">
-                <HourlyForecast v-if="forecasts" :forecasts="forecasts"/>
+                <HourlyForecast v-if="forecasts"/>
             </div>
             <div id="leftPartBottomSide" class="flex-space-between full-width">
                 <div id="bottomSideLeftPart" class="full-height">
@@ -56,8 +56,8 @@ onMounted(async () => {
 
                     </div>
                     <div id="sunsetAndFeelsLikeContainer" class="full-width flex-space-between">
-                        <Sunset :weather="weatherData" v-if="weatherData"/>
-                        <FeelsLike :weather="weatherData" v-if="weatherData"/>
+                        <Sunset v-if="weatherData"/>
+                        <FeelsLike v-if="weatherData"/>
                     </div>
                 </div>
             </div>
