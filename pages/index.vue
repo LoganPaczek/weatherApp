@@ -55,8 +55,9 @@ onMounted(async () => {
                     <div id="airQuality" class="full-width">
 
                     </div>
-                    <div id="sunsetAndFeelsLikeContainer" class="full-width">
-                        
+                    <div id="sunsetAndFeelsLikeContainer" class="full-width flex-space-between">
+                        <Sunset/>
+                        <FeelsLike :weather="weatherData" v-if="weatherData"/>
                     </div>
                 </div>
             </div>
@@ -133,7 +134,7 @@ onMounted(async () => {
                     }
 
                     #sunsetAndFeelsLikeContainer{
-                        height: 55%;
+                        height: 60%;
                         background-color: rgb(36, 218, 0);
                     }
                 }

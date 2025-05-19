@@ -23,7 +23,7 @@
 .section_title{
   color: #BDBDBD;
   display: flex;
-  margin: 15px 0px 0px 30px;
+  margin: 15px 0px 0px 15px;
 
     .icon{
         fill: #BDBDBD;
