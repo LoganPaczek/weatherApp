@@ -56,7 +56,7 @@ onMounted(async () => {
 
                     </div>
                     <div id="sunsetAndFeelsLikeContainer" class="full-width flex-space-between">
-                        <Sunset/>
+                        <Sunset :weather="weatherData" v-if="weatherData"/>
                         <FeelsLike :weather="weatherData" v-if="weatherData"/>
                     </div>
                 </div>
@@ -82,7 +82,6 @@ onMounted(async () => {
 
     header#header{
         height: 15%;
-        background-color: green;
         color: #FFFFFF;
 
         input{
@@ -117,7 +116,6 @@ onMounted(async () => {
 
             #leftPartBottomSide{
                 height: 60%;
-                background-color: aqua;
 
                 #bottomSideLeftPart{
                     width: 40%;
@@ -126,7 +124,6 @@ onMounted(async () => {
 
                 #bottomSideRightPart{
                     width: 55%;
-                    background-color: lightpink;
 
                     #airQuality{
                         height: 35%; // Hauteur définie ici
@@ -135,7 +132,6 @@ onMounted(async () => {
 
                     #sunsetAndFeelsLikeContainer{
                         height: 60%;
-                        background-color: rgb(36, 218, 0);
                     }
                 }
             }

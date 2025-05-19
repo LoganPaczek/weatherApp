@@ -44,6 +44,7 @@
                     width: 90px;
                     height: 80px;
                     margin: 10px 0px;
+                    object-fit: contain;
                 }
     
                 .temperature{
