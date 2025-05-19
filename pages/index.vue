@@ -49,7 +49,7 @@ onMounted(async () => {
             </div>
             <div id="leftPartBottomSide" class="flex-space-between full-width">
                 <div id="bottomSideLeftPart" class="full-height">
-
+                    <DailyForecasts v-if="forecasts"/>
                 </div>
                 <div id="bottomSideRightPart" class="flex-space-between flex-column full-height">
                     <div id="airQuality" class="full-width">
@@ -118,8 +118,7 @@ onMounted(async () => {
                 height: 60%;
 
                 #bottomSideLeftPart{
-                    width: 40%;
-                    background-color: lightcoral;
+                    width: 42%;
                 }
 
                 #bottomSideRightPart{
