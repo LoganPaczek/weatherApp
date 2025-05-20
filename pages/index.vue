@@ -35,215 +35,259 @@ onMounted(async () => {
 </script>
 
 <template>
-    <header id="header" class="flex-center flex-column">
-        <input type="text" name="city" id="city" value="Frévent" disabled>
-        <p id="currentTemp">
-          {{ weatherData?.main?.temp ? Math.round(weatherData.main.temp) + '°C' : 'Chargement...' }}
-        </p>
-        <p id="currentWeather">
-          {{ weatherData?.weather[0]?.main || 'Chargement...' }}
-        </p>
-    </header>
 
-    <div id="weatherDataContainer">
-        <div id="leftPart" class="flex-space-between flex-column">
-            <div id="leftPartTopSide" class="full-width">
-                <HourlyForecast v-if="forecasts"/>
-            </div>
-            <div id="leftPartBottomSide" class="flex-space-between full-width">
-                <div id="bottomSideLeftPart" class="full-height">
-                    <DailyForecasts v-if="forecasts"/>
-                </div>
-                <div id="bottomSideRightPart" class="flex-space-between flex-column full-height">
-                    <div id="airQuality" class="full-width">
-                        <AirQuality v-if="weatherData"/>
-                    </div>
-                    <div id="sunsetAndFeelsLikeContainer" class="full-width flex-space-between">
-                        <Sunset v-if="weatherData"/>
-                        <FeelsLike v-if="weatherData"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="rightPart">
-            <div id="rightPartTopSide">
-
-            </div>
-            <div id="rightPartBottomSide">
-                
-            </div>
-        </div>
+    <div class="loader flex-center flex-column" v-if="!weather && !forecasts">
+        <p>Chargement du site web...</p>
+        <div class="spinner"></div>
     </div>
 
-    <footer id="footer">
-
-    </footer>
+    <div 
+    id="weatherDataMainContainer" 
+    class="flex-space-between flex-column full-height"
+    v-else
+    >
+        <header id="header" class="flex-center flex-column">
+            <input type="text" name="city" id="city" value="Frévent" disabled>
+            <p id="currentTemp">
+              {{ weatherData?.main?.temp ? Math.round(weatherData.main.temp) + '°C' : 'Chargement...' }}
+            </p>
+            <p id="currentWeather">
+              {{ weatherData?.weather[0]?.main || 'Chargement...' }}
+            </p>
+        </header>
+    
+        <div id="weatherDataContainer" class="full-width">
+            <div id="leftPart" class="flex-space-between flex-column">
+                <div id="leftPartTopSide" class="full-width">
+                    <HourlyForecast v-if="forecasts"/>
+                </div>
+                <div id="leftPartBottomSide" class="flex-space-between full-width">
+                    <div id="bottomSideLeftPart" class="full-height">
+                        <DailyForecasts v-if="forecasts"/>
+                    </div>
+                    <div id="bottomSideRightPart" class="flex-space-between flex-column full-height">
+                        <div id="airQuality" class="full-width">
+                            <AirQuality v-if="weatherData"/>
+                        </div>
+                        <div id="sunsetAndFeelsLikeContainer" class="full-width flex-space-between">
+                            <Sunset v-if="weatherData"/>
+                            <FeelsLike v-if="weatherData"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="rightPart">
+                <div id="rightPartTopSide">
+    
+                </div>
+                <div id="rightPartBottomSide">
+                    
+                </div>
+            </div>
+        </div>
+    
+        <footer id="footer">
+    
+        </footer>
+    </div>
 </template>
 
 <style scoped lang="scss">
     @use '/assets/styles/variables' as v;
+    .loader{
+        width: 100%;
+        height: 100vh;
 
-    header#header{
-        height: 15%;
-        color: #FFFFFF;
+        .spinner{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-top: 10px;
+            border: 5px solid #000;
+            border-top: 5px solid #3498db;
+            animation: spin 1s ease-in-out infinite;
+        }
+    }
 
-        input{
-            text-align: center;
-            background: transparent;
-            border: none;
-            font-weight: bold;
-            font-size: 1.8em;
+    #weatherDataMainContainer{
+            header#header{
+            height: 15%;
             color: #FFFFFF;
-        }
 
-        #currentTemp{
-            font-size: 1.5em;
-        }
-    }
-
-    #weatherDataContainer{
-        height: 75%;
-        // background-color: blue;
-        display: flex;
-        justify-content: space-around;
-        align-items: stretch; // Assure que les enfants s'étirent uniformément
-
-        #leftPart{
-            width: 55%;
-            // background-color: chocolate;
-
-            #leftPartTopSide{
-                height: 37%;
-                // background-color: lightgreen;
+            input{
+                text-align: center;
+                background: transparent;
+                border: none;
+                font-weight: bold;
+                font-size: 1.8em;
+                color: #FFFFFF;
             }
 
-            #leftPartBottomSide{
-                height: 60%;
-
-                #bottomSideLeftPart{
-                    width: 42%;
-                }
-
-                #bottomSideRightPart{
-                    width: 55%;
-
-                    #airQuality{
-                        height: 35%; // Hauteur définie ici
-                    }
-
-                    #sunsetAndFeelsLikeContainer{
-                        height: 60%;
-                    }
-                }
+            #currentTemp{
+                font-size: 1.5em;
             }
         }
 
-        #rightPart{
-            width: 35%;
-            background-color: lightblue;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            #rightPartTopSide{
-                height: 61%;
-                background-color: brown;
-            }
-
-            #rightPartBottomSide{
-                height: 33%;
-                background-color: lightyellow;
-            }
-        }
-    }
-
-    footer#footer{
-        height: 10%;
-        background-color: yellow;
-    }
-
-    @media screen and (max-width: 1000px) {
         #weatherDataContainer{
-            justify-content: space-between;
-            
+            height: 75%;
+            // background-color: blue;
+            display: flex;
+            justify-content: space-around;
+            align-items: stretch; // Assure que les enfants s'étirent uniformément
+
             #leftPart{
-                width: 61%;
+                width: 55%;
+                // background-color: chocolate;
+
+                #leftPartTopSide{
+                    height: 37%;
+                    // background-color: lightgreen;
+                }
+
+                #leftPartBottomSide{
+                    height: 60%;
+
+                    #bottomSideLeftPart{
+                        width: 42%;
+                    }
+
+                    #bottomSideRightPart{
+                        width: 55%;
+
+                        #airQuality{
+                            height: 35%; // Hauteur définie ici
+                        }
+
+                        #sunsetAndFeelsLikeContainer{
+                            height: 60%;
+                        }
+                    }
+                }
             }
 
             #rightPart{
-                width: 38%;
+                width: 35%;
+                background-color: lightblue;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                #rightPartTopSide{
+                    height: 61%;
+                    background-color: brown;
+                }
+
+                #rightPartBottomSide{
+                    height: 33%;
+                    background-color: lightyellow;
+                }
+            }
+        }
+
+        footer#footer{
+            height: 10%;
+            background-color: yellow;
+        }
+    }
+
+    
+
+    @media screen and (max-width: 1000px) {
+        #weatherDataMainContainer{
+            #weatherDataContainer{
+                justify-content: space-between;
+                
+                #leftPart{
+                    width: 61%;
+                }
+    
+                #rightPart{
+                    width: 38%;
+                }
             }
         }
     }
 
     @media screen and (max-width: 768px) {
-        header#header{
-            height: 11%;
-        }
+        #weatherDataMainContainer{
+            header#header{
+                height: 11%;
+            }
+    
+            #weatherDataContainer{
+                flex-direction: column;
+                height: 81%;
+                
+                #leftPart{
+                    width: v.$full-percentage-value;
+                    height: 75%;
 
-        #weatherDataContainer{
-            flex-direction: column;
-            height: 81%;
-            
-            #leftPart{
-                width: v.$full-percentage-value;
-                height: 75%;
-
-                #leftPartTopSide{
-                    height: 35%;
+                    #leftPartTopSide{
+                        height: 35%;
+                    }
+    
+                    #leftPartBottomSide{
+                        height: 65%;
+                        margin-top: 20px;
+    
+                        #bottomSideRightPart{
+                            width: 55%;
+                        }
+                    }
                 }
-
-                #leftPartBottomSide{
-                    height: 65%;
+    
+                #rightPart{
+                    flex-direction: row;
+                    width: v.$full-percentage-value;
+                    height: 30%;
                     margin-top: 20px;
-
-                    #bottomSideRightPart{
-                        width: 55%;
+                
+                    #rightPartTopSide{
+                        height: v.$full-percentage-value;
                     }
                 }
             }
-
-            #rightPart{
-                flex-direction: row;
-                width: v.$full-percentage-value;
-                height: 30%;
-                margin-top: 20px;
             
-                #rightPartTopSide{
-                    height: v.$full-percentage-value;
-                }
+            footer#footer{
+                height: 8%;
             }
-        }
-        
-        footer#footer{
-            height: 8%;
         }
     }
 
     @media screen and (max-width: 600px){
-        #weatherDataContainer{
-            #leftPart{
-                #leftPartBottomSide{
-                    flex-direction: column;
-
-                    #bottomSideLeftPart{
-                        width: v.$full-percentage-value;
-                    }
-
-                    #bottomSideRightPart{
-                        width: v.$full-percentage-value;
-                        margin-top: 20px;
-
-                        #airQuality{
-                            padding: 10px 0px;
+        #weatherDataMainContainer{
+            #weatherDataContainer{
+                #leftPart{
+                    #leftPartBottomSide{
+                        flex-direction: column;
+    
+                        #bottomSideLeftPart{
+                            width: v.$full-percentage-value;
                         }
-
-                        #sunsetAndFeelsLikeContainer{
+    
+                        #bottomSideRightPart{
+                            width: v.$full-percentage-value;
                             margin-top: 20px;
+    
+                            #airQuality{
+                                padding: 10px 0px;
+                            }
+    
+                            #sunsetAndFeelsLikeContainer{
+                                margin-top: 20px;
+                            }
                         }
                     }
                 }
             }
         }
     }
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    } 100%{
+        transform: rotate(360deg);
+    }
+}
 </style>

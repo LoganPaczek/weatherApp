@@ -34,7 +34,7 @@
                 margin-left: 20px;
     
                 img{
-                    width: 90px;
+                    width: 80px;
                     height: 80px;
                     margin: 10px 0px;
                     object-fit: contain;

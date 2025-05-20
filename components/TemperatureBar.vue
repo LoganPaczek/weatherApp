@@ -48,10 +48,4 @@ onMounted(updateCursorPosition);
         position: absolute;
     }
     }
-
-    /* @media screen and (max-width: 480px) {
-        .bars{
-            width: 60%;
-        }
-    } */
 </style>

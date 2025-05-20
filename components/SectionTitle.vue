@@ -13,7 +13,7 @@
 </script>
 
 <template>
-    <div class="section_title">
+    <div class="section_title margin-left-15">
         <div v-html="icon" class="icon"></div>
         <p>{{ title }}</p>
     </div>
@@ -23,7 +23,7 @@
 .section_title{
   color: #BDBDBD;
   display: flex;
-  margin: 15px 0px 0px 15px;
+  margin-top: 15px;
 
     .icon{
         fill: #BDBDBD;

@@ -11,8 +11,6 @@ body{
     border-radius: 10px;
 }
 
-
-
 .flex-center{
     display: flex;
     align-items: center;
@@ -33,6 +31,10 @@ body{
     width: 100%;
 }
 
+.half-width{
+    width: 50%;
+}
+
 .full-height{
     height: 100%;
 }
@@ -45,4 +47,8 @@ body{
 .text-highlight-1{
     font-weight: bold;
     font-size: 1.5em;
+}
+
+.margin-left-15{
+    margin-left: 15px;
 }
