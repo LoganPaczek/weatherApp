@@ -80,7 +80,8 @@ onMounted(async () => {
                 <div id="rightPartTopSide">
     
                 </div>
-                <div id="rightPartBottomSide">
+                <div id="rightPartBottomSide" class="flex-space-between">
+                    <Humidity/>
                     <WindDirection/>
                 </div>
             </div>
@@ -179,7 +180,7 @@ onMounted(async () => {
 
                 #rightPartBottomSide{
                     height: 36%;
-                    background-color: lightyellow;
+                    // background-color: lightyellow;
                 }
             }
         }

@@ -78,6 +78,7 @@
     #air_quality_data-container{
         padding-left: 15px;
         margin-top: 5px;
+        overflow: scroll;
 
         #comment{
             font-size: 14px;
