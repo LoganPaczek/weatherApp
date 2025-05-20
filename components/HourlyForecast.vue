@@ -51,4 +51,12 @@
         margin-left: 20px;
     }
 }
+
+    @media screen and (max-width: 600px){
+        .section{
+            #hourlyForecasts{
+                padding-bottom: 10px;
+            }
+        }
+    }
 </style>

@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 
-const city = ref("Frévent");
+// const city = ref("Frévent");
 const weatherData = useState('weatherData', () => null); // État global pour les données météo
 const forecasts = useState('forecastsData', () => null); // État global pour les données de forecasts
 const error = ref(null); // Stocker les erreurs
@@ -15,6 +15,7 @@ onMounted(async () => {
     // Effectuer la requête avec fetch
     const response1 = await fetch(url);
     const response2 = await fetch(forecastUrl);
+
 
     // Convertir la réponse en JSON
     const data1 = await response1.json();
@@ -55,7 +56,7 @@ onMounted(async () => {
                 </div>
                 <div id="bottomSideRightPart" class="flex-space-between flex-column full-height">
                     <div id="airQuality" class="full-width">
-                        <AirQuality/>
+                        <AirQuality v-if="weatherData"/>
                     </div>
                     <div id="sunsetAndFeelsLikeContainer" class="full-width flex-space-between">
                         <Sunset v-if="weatherData"/>
@@ -231,6 +232,15 @@ onMounted(async () => {
 
                     #bottomSideRightPart{
                         width: v.$full-percentage-value;
+                        margin-top: 20px;
+
+                        #airQuality{
+                            padding: 10px 0px;
+                        }
+
+                        #sunsetAndFeelsLikeContainer{
+                            margin-top: 20px;
+                        }
                     }
                 }
             }

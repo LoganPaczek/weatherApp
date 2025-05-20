@@ -15,4 +15,10 @@
             height: 120vh;
         }
     }
+
+    @media screen and (max-width: 600px){
+        .container{
+            height: auto;
+        }
+    }
 </style>
