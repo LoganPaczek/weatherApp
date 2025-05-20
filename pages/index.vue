@@ -59,19 +59,19 @@ onMounted(async () => {
         <div id="weatherDataContainer" class="full-width">
             <div id="leftPart" class="flex-space-between flex-column">
                 <div id="leftPartTopSide" class="full-width">
-                    <HourlyForecast v-if="forecasts"/>
+                    <HourlyForecast/>
                 </div>
                 <div id="leftPartBottomSide" class="flex-space-between full-width">
                     <div id="bottomSideLeftPart" class="full-height">
-                        <DailyForecasts v-if="forecasts"/>
+                        <DailyForecasts/>
                     </div>
                     <div id="bottomSideRightPart" class="flex-space-between flex-column full-height">
                         <div id="airQuality" class="full-width">
-                            <AirQuality v-if="weatherData"/>
+                            <AirQuality/>
                         </div>
                         <div id="sunsetAndFeelsLikeContainer" class="full-width flex-space-between">
-                            <Sunset v-if="weatherData"/>
-                            <FeelsLike v-if="weatherData"/>
+                            <Sunset/>
+                            <FeelsLike/>
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@ onMounted(async () => {
     
                 </div>
                 <div id="rightPartBottomSide">
-                    
+                    <WindDirection/>
                 </div>
             </div>
         </div>
@@ -167,7 +167,7 @@ onMounted(async () => {
 
             #rightPart{
                 width: 35%;
-                background-color: lightblue;
+                // background-color: lightblue;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -178,7 +178,7 @@ onMounted(async () => {
                 }
 
                 #rightPartBottomSide{
-                    height: 33%;
+                    height: 36%;
                     background-color: lightyellow;
                 }
             }

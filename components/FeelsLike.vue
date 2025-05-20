@@ -1,5 +1,7 @@
 <script setup>
   const weatherData = useState('weatherData');
+  console.log(weatherData);
+  
 
   const feelsLikeComments = [
     { minDiff: -Infinity, maxDiff: -5, comment: "The wind or humidity makes it feel much colder, bundle up!" },

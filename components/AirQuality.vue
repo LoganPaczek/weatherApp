@@ -47,9 +47,6 @@
         if (!airQualityResponse.ok) throw new Error("Erreur lors de la récupération des données de qualité de l'air");
         const airQualityData = await airQualityResponse.json();
         airQuality.value = airQualityData.list[0].main.aqi;
-        
-        console.log(airQuality.value);
-        
 
     } catch (err) {
         // Gérer les erreurs

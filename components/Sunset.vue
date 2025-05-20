@@ -18,8 +18,6 @@
                 :
                 {{ getMinute(weatherData.sys.sunset) }}
             </p>
-
-            <SunArc :progress="0.7"/>
         </div>
     </div>
 </template>
