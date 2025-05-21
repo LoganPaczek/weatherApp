@@ -1,0 +1,95 @@
+[33mcommit 996b074e3ff118275ffc658360c38551641c999e[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: logan <paczek.logan05@gmail.com>
+Date:   Tue May 20 12:40:11 2025 +0200
+
+    Create AirQuality Section
+
+[33mcommit 6eedd400af2179d8e4c5ae3f91c34d61640abcaf[m
+Author: logan <paczek.logan05@gmail.com>
+Date:   Tue May 20 12:24:01 2025 +0200
+
+    Create WindSpeed Section
+
+[33mcommit c9954d4ce591b1b2d314e4055417b754612d6315[m
+Author: logan <paczek.logan05@gmail.com>
+Date:   Tue May 20 11:54:12 2025 +0200
+
+    Improve Styles
+
+[33mcommit 8be5cbbe0934c90a9e1e81a2ef30312b2a53f37b[m
+Author: logan <paczek.logan05@gmail.com>
+Date:   Tue May 20 07:55:59 2025 +0200
+
+    Finish AirQuality Section
+
+[33mcommit 081a3cfcbd3dbe946879407677e0ba1c1c01b260[m
+Author: logan <paczek.logan05@gmail.com>
+Date:   Mon May 19 18:59:01 2025 +0200
+
+    Start AirQuality Section
+
+[33mcommit 6276f4684326ecf174152fd21a3dcc74f4b2f41f[m
+Author: logan <paczek.logan05@gmail.com>
+Date:   Mon May 19 15:32:30 2025 +0200
+
+    Create DailyForecasts Section
+
+[33mcommit 23ac2c14bb444b3cf6624d98aca124779217f894[m
+Author: logan <paczek.logan05@gmail.com>
+Date:   Mon May 19 07:57:34 2025 +0200
+
+    Optimising Usage of API Data
+
+[33mcommit 0f97dc6114300eb9eb55961d671aa9773605ac8d[m
+Author: logan <paczek.logan05@gmail.com>
+Date:   Mon May 19 07:48:44 2025 +0200
+
+    Optimising Date Function
+
+[33mcommit d54ec298296f67a10d06703db24d92f43173ac00[m
+Author: logan <paczek.logan05@gmail.com>
+Date:   Mon May 19 07:03:19 2025 +0200
+
+    Create Sunset Section
+
+[33mcommit 8a79d2967ebc0f90a3c07f5540e923af2fa38214[m
+Author: logan <paczek.logan05@gmail.com>
+Date:   Mon May 19 06:54:33 2025 +0200
+
+    Create FeelsLike Section
+
+[33mcommit 3f8f241ea696c154bcbf3a34f7bc499e0dee763e[m
+Author: logan <paczek.logan05@gmail.com>
+Date:   Sun May 18 15:47:30 2025 +0200
+
+    Create Hourly Forecasts Section
+
+[33mcommit c325cf56a90110becdcafcf4ed56d83a8a2b1f26[m
+Author: logan <paczek.logan05@gmail.com>
+Date:   Sat May 17 21:21:21 2025 +0200
+
+    Connect FIrst Api
+
+[33mcommit 8773d6a9823e507921b783477c0b4b59102a5fd0[m
+Author: logan <paczek.logan05@gmail.com>
+Date:   Sat May 17 20:25:24 2025 +0200
+
+    Create Variables And Main Styles
+
+[33mcommit 6f8ae44f4bb4bdda4e2b294fffe7c28d5e2dead6[m
+Author: logan <paczek.logan05@gmail.com>
+Date:   Sat May 17 11:34:17 2025 +0200
+
+    Create Skeleton
+
+[33mcommit c402ae149da29011950304407393bdd529512897[m
+Author: logan <paczek.logan05@gmail.com>
+Date:   Fri May 16 13:22:43 2025 +0200
+
+    Clear project and create layout
+
+[33mcommit d0c4457619ccf40b0254b9ba430c816a4bb60c9b[m
+Author: logan <paczek.logan05@gmail.com>
+Date:   Fri May 16 13:17:08 2025 +0200
+
+    Initial commit

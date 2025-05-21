@@ -1,0 +1,8 @@
+DOING 👍
+AirQuality
+DailyForecasts
+feelsLike
+HourlyForecasts
+TemperatureBars
+Optimize Overflox Scroll
+Make the errorMessage is in english
