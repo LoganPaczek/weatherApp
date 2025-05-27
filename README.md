@@ -1,75 +1,31 @@
-# Nuxt Minimal Starter
+﻿# 🌤️ Application Météo avec Nuxt.js
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Une application météo simple développée avec Nuxt.js. Elle permet d'afficher les données météo actuelles d'une ville, avec la possibilité de rechercher et de changer la ville.
 
-## Setup
+---
 
-Make sure to install dependencies:
+## 🚀 Fonctionnalités
 
+- Affichage de la température, de l’humidité et de la description météo
+- Recherche de ville (input dynamique)
+- Données récupérées depuis une API météo (ex : OpenWeatherMap)
+- Interface responsive et légère
+- Développée avec Nuxt.js (Vue 3)
+
+---
+
+## 🛠️ Technologies utilisées
+
+- [Nuxt.js 3](https://nuxt.com/) (framework Vue)
+- HTML / CSS / JavaScript
+- [OpenWeatherMap API](https://openweathermap.org/api)
+- Fetch / asyncData pour les appels API
+
+---
+
+## 📦 Installation
+
+1. Clone le projet :
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+git clone https://github.com/tonpseudo/meteo-nuxt-app.git
+cd meteo-nuxt-app
