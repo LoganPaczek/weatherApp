@@ -13,6 +13,7 @@
     @media screen and (max-width: 768px) {
         .container{
             height: 120vh;
+            background-color: blue;
         }
     }
 

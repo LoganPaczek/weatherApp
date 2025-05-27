@@ -1,15 +1,17 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 
-// const city = ref("Frévent");
+const city = ref("Frévent");
 const weatherData = useState('weatherData', () => null); // État global pour les données météo
 const forecasts = useState('forecastsData', () => null); // État global pour les données de forecasts
 const error = ref(null); // Stocker les erreurs
+const changingCity = ref(false);
+
 
 onMounted(async () => {
   const config = useRuntimeConfig();
-  const url = `/api/weather?q=Frévent&appid=${config.public.apiKey}&units=metric`;
-  const forecastUrl = `/api/forecast?q=Frévent&appid=${config.public.apiKey}&units=metric`;
+  const url = `/api/weather?q=${city.value}&appid=${config.public.apiKey}&units=metric`;
+  const forecastUrl = `/api/forecast?q=${city.value}&appid=${config.public.apiKey}&units=metric`;
   
   try {
     // Effectuer la requête avec fetch
@@ -36,8 +38,7 @@ onMounted(async () => {
 
 <template>
 
-    <Loader v-if="!weather && !forecasts"/>
-
+    <Loader v-if="!weatherData && !forecasts"/>
 
     <div 
     id="weatherDataMainContainer" 
@@ -45,7 +46,18 @@ onMounted(async () => {
     v-else
     >
         <header id="header" class="flex-center flex-column">
-            <input type="text" name="city" id="city" value="Frévent" disabled>
+            <div id="cityInputContainer" class="flex-center flex-column">
+                <p>{{ changingCity }}</p>
+                <input 
+                @click="changingCity.value = true" 
+                type="text" 
+                name="city" 
+                id="city" 
+                :disabled="!changingCity"
+                v-model="city"
+                >
+                <input type="submit" id="changeCity" value="Changer">
+            </div>
             <p id="currentTemp">
               {{ weatherData?.main?.temp ? Math.round(weatherData.main.temp) + '°C' : 'Chargement...' }}
             </p>
@@ -76,7 +88,7 @@ onMounted(async () => {
             </div>
             <div id="rightPart">
                 <div id="rightPartTopSide">
-    
+                    <WeatherMap/>
                 </div>
                 <div id="rightPartBottomSide" class="flex-space-between">
                     <Humidity/>
@@ -97,14 +109,25 @@ onMounted(async () => {
             header#header{
             height: 15%;
             color: #FFFFFF;
+            width: 200px;
 
-            input{
-                text-align: center;
-                background: transparent;
-                border: none;
-                font-weight: bold;
-                font-size: 1.8em;
-                color: #FFFFFF;
+            #cityInputContainer{
+                width: 100%;
+
+                input{
+                    text-align: center;
+                    background: transparent;
+                    border: none;
+                    font-weight: bold;
+                    font-size: 1.8em;
+                    color: #FFFFFF;
+                    cursor: pointer;
+
+                    &#changeCity{
+                        font-size: 1.3em;
+                        display: none;
+                    }
+                }
             }
 
             #currentTemp{
@@ -158,7 +181,7 @@ onMounted(async () => {
 
                 #rightPartTopSide{
                     height: 61%;
-                    background-color: brown;
+
                 }
 
                 #rightPartBottomSide{
@@ -221,13 +244,20 @@ onMounted(async () => {
                 }
     
                 #rightPart{
-                    flex-direction: row;
                     width: v.$full-percentage-value;
                     height: 30%;
                     margin-top: 20px;
+                    background-color: red;
                 
                     #rightPartTopSide{
                         height: v.$full-percentage-value;
+                        height: 50%;
+                        width: 100%;
+                        background-color: orangered;
+                    }
+
+                    #rightPartBottomSide{
+                        background-color: green;
                     }
                 }
             }
