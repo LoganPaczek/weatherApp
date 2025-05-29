@@ -1,4 +1,5 @@
 <script setup>
+    defineNuxtComponent({ ssr: false });
     import { onMounted, ref } from 'vue'
     import { initializeMap } from '../services/mapService'
 

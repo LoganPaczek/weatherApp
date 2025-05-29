@@ -75,7 +75,9 @@ onMounted(() => {
             </div>
             <div id="rightPart">
                 <div id="rightPartTopSide">
-                    <WeatherMap/>
+                    <client-only>
+                        <WeatherMap />
+                    </client-only>
                 </div>
                 <div id="rightPartBottomSide" class="flex-space-between">
                     <Humidity/>
