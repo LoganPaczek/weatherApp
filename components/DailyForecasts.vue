@@ -86,26 +86,28 @@
             display: flex;
             border-top: 2px solid #BDBDBD;
             padding: 3px 0px;
+            margin-top: 20px;
 
-            &:nth-child(1){
-                margin-top: 20px;
+            p{
+                font-size: 1.2em;
             }
 
             .left{
                 padding: 0px 5px;
 
                 img{
-                    width: 50px;
-                    height: 50px;
+                    width: 60px;
+                    height: 60px;
                     object-fit: contain;
+
+                    @media screen and (max-width: 1400px){
+                        width: 50px;
+                        height: 50px;
+                    }
                 }
             }
 
             .right{
-                p{
-                    font-size: 1.1em;
-                }
-
                 .minTemp{
                     color: #BDBDBD;
                 }

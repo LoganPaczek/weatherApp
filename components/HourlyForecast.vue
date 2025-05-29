@@ -31,19 +31,19 @@
 
         #hourlyForecasts{
             .hourly_weather{
-                max-width: 150px;
+                max-width: 200px;
                 text-align: center;
                 margin-left: 20px;
-    
-                img{
-                    width: 80px;
-                    height: 80px;
-                    margin: v.$ten-pixels 0px;
-                    object-fit: contain;
+
+                p{
+                    font-size: 1.5em;
                 }
     
-                .temperature{
-                    font-size: 1.2em;
+                img{
+                    width: 100px;
+                    height: 100px;
+                    margin: v.$ten-pixels 0px;
+                    object-fit: contain;
                 }
             }
         }

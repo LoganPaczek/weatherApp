@@ -126,7 +126,7 @@ onMounted(() => {
                     border: none;
                     outline: none;
                     font-weight: bold;
-                    font-size: 1.8em;
+                    font-size: 2em;
                     padding: 0;
                     color: #FFFFFF;
                     cursor: pointer;
@@ -140,6 +140,7 @@ onMounted(() => {
 
             #currentTemp{
                 font-size: 1.5em;
+                margin: 5px 0px;
             }
         }
 
@@ -153,25 +154,25 @@ onMounted(() => {
                 width: 55%;
 
                 #leftPartTopSide{
-                    height: 37%;
+                    height: 33%;
                 }
 
                 #leftPartBottomSide{
                     height: 60%;
 
                     #bottomSideLeftPart{
-                        width: 43%;
+                        width: 50%;
                     }
 
                     #bottomSideRightPart{
-                        width: 55%;
+                        width: 48%;
 
                         #airQuality{
-                            height: 35%;
+                            height: 40%;
                         }
 
                         #sunsetAndFeelsLikeContainer{
-                            height: 60%;
+                            height: 55%;
                         }
                     }
                 }
@@ -245,10 +246,6 @@ onMounted(() => {
     
                     #leftPartBottomSide{
                         height: 60%;
-    
-                        #bottomSideRightPart{
-                            width: 55%;
-                        }
                     }
                 }
     
@@ -320,8 +317,7 @@ onMounted(() => {
                 }
 
                 #rightPart{
-                    height: 39%;
-
+                    height: 34%;
                 }
             }
 
