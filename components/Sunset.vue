@@ -20,7 +20,7 @@
             </p>
         </div>
 
-        <ErrorData :errorMessage="'Aucune données disponibles pour le couchée du soleil'" v-else/>
+        <ErrorData :errorMessage="'No data available for sunset'" v-else/>
     </div>
 </template>
 

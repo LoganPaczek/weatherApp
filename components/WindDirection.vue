@@ -2,7 +2,8 @@
     const weatherData = useState('weatherData');    
 
     const getRotationAngle = (windDirection) => {
-        return windDirection || 0; // Retourne 0 si `windDirection` est undefined
+        // Return the windDirection or 0 if this one is undefined
+        return windDirection || 0;
     };
 </script>
 
@@ -24,7 +25,7 @@
                  viewBox="0 0 448 512"><path d="M429.6 92.1c4.9-11.9 2.1-25.6-7-34.7s-22.8-11.9-34.7-7l-352 144c-14.2 5.8-22.2 20.8-19.3 35.8s16.1 25.8 31.4 25.8l176 0 0 176c0 15.3 10.8 28.4 25.8 31.4s30-5.1 35.8-19.3l144-352z"/></svg>
             </div>
         </div>
-        <ErrorData :errorMessage="'Aucune données disponible sur la vitesse du vent'" v-else/>
+        <ErrorData :errorMessage="'No wind speed data available'" v-else/>
     </div>
 </template>
 
@@ -41,7 +42,6 @@
                 border-radius: 50%;
                 border: 5px solid #BDBDBD;
                 margin: 10px auto;
-                justify-content: center;
 
                 svg{
                     width: 60%;

@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <ErrorData :errorMessage="'Aucunes prévisions disponibles'" v-else/>
+        <ErrorData :errorMessage="'No forecasts available'" v-else/>
     </div>
 </template>
 

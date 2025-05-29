@@ -10,7 +10,7 @@
         return days[date.getDay()];
     };
 
-    const createSortedDays = (forecasts) => {
+    const createSortedDays = () => {
     const dayData = {};
 
     forecastsData.value.list.forEach(forecast => {

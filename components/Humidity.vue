@@ -1,6 +1,9 @@
 <script setup>
     const weatherData = useState('weatherData');
 
+    // Returns a dynamic CSS variable for the humidity percentage,
+    // clamped between 0 and 100. This value is used to control
+    // the fill level of a circular humidity indicator via a conic gradient.
     const getDropCircleStyle = (humidity) => {
         const percentage = Math.min(Math.max(humidity, 0), 100);
         return {
@@ -40,7 +43,7 @@
             <p id="humidityComment">{{ getHumidityComment(weatherData.main.humidity) }}</p>
         </div>
 
-        <ErrorData :errorMessage="'Aucune données dipsonibles à propos de l\'humidité'" v-else/>
+        <ErrorData :errorMessage="'No data available on humidity'" v-else/>
     </div>
 </template>
 

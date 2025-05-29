@@ -13,6 +13,7 @@
 
   const getFeelsLikeComment = (temp, feelsLike) =>{
     const diff = feelsLike - temp;
+    // Return the corresponding comment 
     return feelsLikeComments.find(({ minDiff, maxDiff }) => diff >= minDiff && diff < maxDiff).comment;
   }
 </script>
@@ -31,7 +32,7 @@
             <p id="temperatureComment" class="margin-left-15">{{ getFeelsLikeComment((Math.round(weatherData.main.temp)), Math.round(weatherData.main.feels_like)) }}</p>
         </div>
 
-        <ErrorData :errorMessage="'Aucune données disponible sur le ressentie'" v-else/>
+        <ErrorData :errorMessage="'No data available on the feeling'" v-else/>
     </div>
 
 </template>
