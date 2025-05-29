@@ -17,7 +17,11 @@ export default defineNuxtConfig({
         { rel: 'preload', as: 'image', href: '/assets/images/Rain.png' },
         { rel: 'preload', as: 'image', href: '/assets/images/Clouds.png' },
         { rel: 'preload', as: 'image', href: '/assets/images/Storm.png' },
-      ]
+      ],
+
+      htmlAttrs: {
+        lang: 'fr'
+      }
     }
   },
 

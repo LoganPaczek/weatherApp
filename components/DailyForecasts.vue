@@ -68,7 +68,7 @@
             <div class="daily_forecast-container" v-for="day in sortedDays">
                 <div class="left flex-space-between half-width">
                     <p class="day">{{ day.day }}</p>
-                    <img :src="`assets/images/${day.weather}.png`" alt="">
+                    <img :src="`assets/images/${day.weather}.png`" :alt="day.weather">
                 </div>
                 <div class="right flex-space-between half-width">
                     <p class="minTemp">{{ day.tempMini }}°</p>
