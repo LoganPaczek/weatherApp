@@ -1,5 +1,0 @@
-TODO
-
-AirQuality
-Make the errorMessage is in english
-Comment the code

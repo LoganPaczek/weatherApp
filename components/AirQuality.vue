@@ -50,24 +50,22 @@
             <p id="score" class="text-highlight-1">
               {{ airQualityScore }} - {{ AirQualityClassement[airQualityScore- 1].quality }}
             </p>
-            <p id="comment">{{ AirQualityClassement[airQualityScore - 1].description }}</p>
+            <p id="comment" class="font-size-14">{{ AirQualityClassement[airQualityScore - 1].description }}</p>
         </div>
     </div>
 </template>
 
 <style scoped lang="scss">
+    @use '/assets/styles/variables' as v;
+
     #air_quality_data-container{
         padding-left: 15px;
-        margin-top: 5px;
-
-        #comment{
-            font-size: 14px;
-        }
+        margin-top: v.$five-pixels;
     }
 
     @media screen and (max-width: 600px){
         #air_quality_data-container{
-            padding-bottom: 10px;
+            padding-bottom: v.$ten-pixels;
         }
     }
 </style>

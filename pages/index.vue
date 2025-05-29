@@ -68,8 +68,26 @@ onMounted(() => {
             </div>
         </div>
     
-        <footer id="footer">
-            <p>Footer</p>
+        <footer id="footer" class="full-width flex-space-between">
+            <div>
+                <p>
+                    &copy; 2025 - Personnal project by <a href="https://www.linkedin.com/in/loganpaczek/" target="_blank">Logan Paczek</a>
+                </p>
+                <p>
+                    Create with <a href="https://nuxt.com/" target="_blank">NuxtJS</a>
+                </p>
+            </div>
+            <div>
+                <p class="text-xs text-gray-400 mt-2 italic">
+                    * Educational project. Weather data may not be accurate.
+                </p>
+                <p>Weather data provided by <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a></p>
+            </div>
+            <div>
+                <p>
+                    <a href="https://github.com/LoganPaczek/weatherApp" target="_blank">View the code on GitHub</a>
+                </p>
+            </div>
         </footer>
     </div>
 </template>
@@ -108,18 +126,15 @@ onMounted(() => {
 
         #weatherDataContainer{
             height: 75%;
-            // background-color: blue;
             display: flex;
             justify-content: space-around;
             align-items: stretch; // Assure que les enfants s'étirent uniformément
 
             #leftPart{
                 width: 55%;
-                // background-color: chocolate;
 
                 #leftPartTopSide{
                     height: 37%;
-                    // background-color: lightgreen;
                 }
 
                 #leftPartBottomSide{
@@ -133,7 +148,7 @@ onMounted(() => {
                         width: 55%;
 
                         #airQuality{
-                            height: 35%; // Hauteur définie ici
+                            height: 35%;
                         }
 
                         #sunsetAndFeelsLikeContainer{
@@ -145,7 +160,6 @@ onMounted(() => {
 
             #rightPart{
                 width: 35%;
-                // background-color: lightblue;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -157,14 +171,20 @@ onMounted(() => {
 
                 #rightPartBottomSide{
                     height: 36%;
-                    // background-color: lightyellow;
                 }
             }
         }
 
         footer#footer{
             height: 10%;
-            background-color: yellow;
+
+            div{
+                margin: 0px 20px;
+                
+                p{
+                    padding: 5px 0px;
+                }
+            }
         }
     }
 
@@ -190,7 +210,6 @@ onMounted(() => {
         #weatherDataMainContainer{
             header#header{
                 height: 8%;
-                background-color: orangered;
             }
     
             #weatherDataContainer{
@@ -233,7 +252,12 @@ onMounted(() => {
             
             footer#footer{
                 height: 5%;
-                background-color: yellow;
+
+                div{
+                    p{
+                        font-size: 14px;
+                    }
+                }
             }
         }
     }
@@ -245,56 +269,51 @@ onMounted(() => {
             }
 
             #weatherDataContainer{
-                background-color: aqua;
                 margin-top: 20px;
 
                 #leftPart{
-                    background-color: red;
-
                     #leftPartTopSide{
-                        background-color: yellow;
                         height: 28%;
                         margin-bottom: 20px;
                     }
 
                     #leftPartBottomSide{
                         flex-direction: column;
-                        background-color: blue;
                         height: 70%;
     
                         #bottomSideLeftPart{
                             width: v.$full-percentage-value;
-                            background-color: orangered;
                         }
     
                         #bottomSideRightPart{
                             width: v.$full-percentage-value;
                             margin-top: 20px;
-                            background-color: pink;
     
                             #airQuality{
                                 padding: 10px 0px;
-                                background-color: black;
                             }
     
                             #sunsetAndFeelsLikeContainer{
                                 margin-top: 20px;
-                                background-color: antiquewhite;
                             }
                         }
                     }
                 }
 
                 #rightPart{
-                    background-color: crimson;
                     height: 39%;
 
                 }
             }
 
             footer#footer{
-                height: 3%;
-                background-color: rgb(51, 255, 0);
+                height: 4%;
+
+                div{
+                    p{
+                        font-size: 12px;
+                    }
+                }
             }
         }
     }

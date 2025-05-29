@@ -13,7 +13,7 @@
         />
 
         <div id="hourlyForecasts" class="flex-space-between" v-if="forecastData">
-            <div v-for="(forecast) in forecastData.list.slice(0,10)" class="hourly_weather">
+            <div v-for="(forecast) in forecastData.list.slice(0,10)" class="hourly_weather margin-top-10">
                 <p>{{ getHour(forecast.dt) }}:00</p>
                 <img :src="`assets/images/${forecast.weather[0].main}.png`">
                 <p class="temperature">{{ Math.round((forecast.main.temp_min + forecast.main.temp_max) / 2) }}°</p>
@@ -25,6 +25,7 @@
 </template>
 
 <style scoped lang="scss">
+    @use '/assets/styles/variables' as v;
     .section{
         overflow-x: scroll;
 
@@ -32,13 +33,12 @@
             .hourly_weather{
                 max-width: 150px;
                 text-align: center;
-                margin-top: 10px;
                 margin-left: 20px;
     
                 img{
                     width: 80px;
                     height: 80px;
-                    margin: 10px 0px;
+                    margin: v.$ten-pixels 0px;
                     object-fit: contain;
                 }
     
@@ -57,7 +57,7 @@
     @media screen and (max-width: 600px){
         .section{
             #hourlyForecasts{
-                padding-bottom: 10px;
+                padding-bottom: v.$ten-pixels;
             }
         }
     }

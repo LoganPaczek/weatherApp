@@ -3,6 +3,17 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
 
+  app :{
+    head :{
+      title : "Weather App By Logan Paczek",
+      meta: [
+        { name: 'description', content: 'Weather app made with Nuxt.js for learning.' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { charset: 'utf-8' },
+      ],
+    }
+  },
+
   css: [
     '@/assets/styles/reset.css',
     '@/assets/styles/global.css'
