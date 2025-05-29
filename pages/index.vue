@@ -2,8 +2,16 @@
 import { onMounted, ref } from 'vue';
 import { useWeather } from '#imports';
 
-const city = ref("Frévent");
+const city = ref("Paris");
+const inputCity = ref(city.value)
+const isDisabled = ref(true);
 const { weatherData, loading, fetchWeatherData } = useWeather();
+
+function changeCity(){
+    isDisabled.value = true;
+    city.value = inputCity.value.trim()
+    fetchWeatherData(city.value);
+}
 
 onMounted(() => {
   fetchWeatherData(city.value);
@@ -25,9 +33,17 @@ onMounted(() => {
                 type="text" 
                 name="city" 
                 id="city" 
-                v-model="city"
+                v-model="inputCity"
+                :readonly="isDisabled"
+                @click="isDisabled && (isDisabled = false)"
                 >
-                <input type="submit" id="changeCity" value="Changer">
+                <input 
+                type="button" 
+                id="changeCity" 
+                value="Changer"
+                v-if="!isDisabled"
+                @click="changeCity"
+                />
             </div>
             <p id="currentTemp">
               {{ weatherData?.main?.temp ? Math.round(weatherData.main.temp) + '°C' : 'Chargement...' }}
@@ -98,7 +114,6 @@ onMounted(() => {
             header#header{
             height: 15%;
             color: #FFFFFF;
-            width: 200px;
 
             #cityInputContainer{
                 width: 100%;
@@ -107,14 +122,16 @@ onMounted(() => {
                     text-align: center;
                     background: transparent;
                     border: none;
+                    outline: none;
                     font-weight: bold;
                     font-size: 1.8em;
+                    padding: 0;
                     color: #FFFFFF;
                     cursor: pointer;
 
                     &#changeCity{
-                        font-size: 1.3em;
-                        display: none;
+                        font-size: 1.1em;
+                        border: 1px solid blue;
                     }
                 }
             }

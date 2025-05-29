@@ -11,6 +11,13 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { charset: 'utf-8' },
       ],
+
+      link: [
+        { rel: 'preload', as: 'image', href: '/assets/images/Clear.png' },
+        { rel: 'preload', as: 'image', href: '/assets/images/Rain.png' },
+        { rel: 'preload', as: 'image', href: '/assets/images/Clouds.png' },
+        { rel: 'preload', as: 'image', href: '/assets/images/Storm.png' },
+      ]
     }
   },
 
