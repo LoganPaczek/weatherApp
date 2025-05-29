@@ -13,13 +13,13 @@ export async function fetchForecast(city) {
 }
 
 export async function fetchGeoData(city) {
-    const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city},FR&limit=1&appid=${apiKey}`);
-    if (!response.ok) throw new Error("Erreur lors de la récupération des données géographiques");
-    return await response.json();
-  }
-  
-  export async function fetchAirQuality(lat, lon) {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`);
-    if (!response.ok) throw new Error("Erreur lors de la récupération des données de qualité de l'air");
-    return await response.json();
-  }
+  const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city},FR&limit=1&appid=${apiKey}`);
+  if (!response.ok) throw new Error("Erreur lors de la récupération des données géographiques");
+  return await response.json();
+}
+
+export async function fetchAirQuality(lat, lon) {
+  const response = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`);
+  if (!response.ok) throw new Error("Erreur lors de la récupération des données de qualité de l'air");
+  return await response.json();
+}

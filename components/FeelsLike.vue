@@ -11,11 +11,11 @@
     { minDiff: 5, maxDiff: Infinity, comment: "Heavy heat, possibly due to humidity!" }
   ];
 
-  const getFeelsLikeComment = (temp, feelsLike) =>{
-    const diff = feelsLike - temp;
-    // Return the corresponding comment 
-    return feelsLikeComments.find(({ minDiff, maxDiff }) => diff >= minDiff && diff < maxDiff).comment;
-  }
+  const getFeelsLikeComment = (temp, feelsLike) => {
+  const diff = feelsLike - temp;
+  const match = feelsLikeComments.find(({ minDiff, maxDiff }) => diff >= minDiff && diff < maxDiff);
+  return match?.comment || "Sensation inconnue";
+};
 </script>
 
 <template>

@@ -1,44 +1,18 @@
 <script setup>
 import { onMounted, ref } from 'vue';
+import { useWeather } from '#imports';
 
 const city = ref("Frévent");
-const weatherData = useState('weatherData', () => null); // État global pour les données météo
-const forecasts = useState('forecastsData', () => null); // État global pour les données de forecasts
-const error = ref(null); // Stocker les erreurs
-const changingCity = ref(false);
+const { weatherData, loading, fetchWeatherData } = useWeather();
 
-
-onMounted(async () => {
-  const config = useRuntimeConfig();
-  const url = `/api/weather?q=${city.value}&appid=${config.public.apiKey}&units=metric`;
-  const forecastUrl = `/api/forecast?q=${city.value}&appid=${config.public.apiKey}&units=metric`;
-  
-  try {
-    // Effectuer la requête avec fetch
-    const response1 = await fetch(url);
-    const response2 = await fetch(forecastUrl);
-
-
-    // Convertir la réponse en JSON
-    const data1 = await response1.json();
-    const data2 = await response2.json();
-
-
-    // Stocker les données
-    weatherData.value = data1;
-    forecasts.value = data2;    
-
-  } catch (err) {
-    // Gérer les erreurs
-    console.error("Erreur lors de la requête :", err);
-    error.value = err.message;
-  }
+onMounted(() => {
+  fetchWeatherData(city.value);
 });
 </script>
 
 <template>
 
-    <Loader v-if="!weatherData && !forecasts"/>
+    <Loader v-if="loading"/>
 
     <div 
     id="weatherDataMainContainer" 
@@ -47,13 +21,10 @@ onMounted(async () => {
     >
         <header id="header" class="flex-center flex-column">
             <div id="cityInputContainer" class="flex-center flex-column">
-                <p>{{ changingCity }}</p>
                 <input 
-                @click="changingCity.value = true" 
                 type="text" 
                 name="city" 
                 id="city" 
-                :disabled="!changingCity"
                 v-model="city"
                 >
                 <input type="submit" id="changeCity" value="Changer">
@@ -80,7 +51,7 @@ onMounted(async () => {
                             <AirQuality/>
                         </div>
                         <div id="sunsetAndFeelsLikeContainer" class="full-width flex-space-between">
-                            <Sunset/>
+                            <Sunset v-if="weatherData?.sys"/>
                             <FeelsLike/>
                         </div>
                     </div>
