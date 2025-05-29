@@ -6,9 +6,9 @@ Une application météo simple développée avec Nuxt.js. Elle permet d'afficher
 
 ## 🚀 Fonctionnalités
 
-- Affichage de la température, de l’humidité et de la description météo
 - Recherche de ville (input dynamique)
 - Données récupérées depuis une API météo (ex : OpenWeatherMap)
+- Affichage de la température, de l’humidité, de la qualité de l'air ainsi que du vent
 - Interface responsive et légère
 - Développée avec Nuxt.js (Vue 3)
 

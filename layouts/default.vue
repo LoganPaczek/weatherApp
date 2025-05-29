@@ -12,14 +12,14 @@
 
     @media screen and (max-width: 768px) {
         .container{
-            height: 120vh;
+            height: 160vh;
             background-color: blue;
         }
     }
 
     @media screen and (max-width: 600px){
         .container{
-            height: auto;
+            height: 200vh;
         }
     }
 </style>

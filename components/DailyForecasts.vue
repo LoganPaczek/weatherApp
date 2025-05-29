@@ -102,8 +102,6 @@
             }
 
             .right{
-                background-color: green($color: #000000);
-
                 p{
                     font-size: 1.1em;
                 }

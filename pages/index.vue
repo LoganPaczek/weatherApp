@@ -98,7 +98,7 @@ onMounted(async () => {
         </div>
     
         <footer id="footer">
-    
+            <p>Footer</p>
         </footer>
     </div>
 </template>
@@ -155,7 +155,7 @@ onMounted(async () => {
                     height: 60%;
 
                     #bottomSideLeftPart{
-                        width: 42%;
+                        width: 43%;
                     }
 
                     #bottomSideRightPart{
@@ -218,24 +218,24 @@ onMounted(async () => {
     @media screen and (max-width: 768px) {
         #weatherDataMainContainer{
             header#header{
-                height: 11%;
+                height: 8%;
+                background-color: orangered;
             }
     
             #weatherDataContainer{
                 flex-direction: column;
-                height: 81%;
+                height: 87%;
                 
                 #leftPart{
                     width: v.$full-percentage-value;
-                    height: 75%;
+                    height: 50%;
 
                     #leftPartTopSide{
                         height: 35%;
                     }
     
                     #leftPartBottomSide{
-                        height: 65%;
-                        margin-top: 20px;
+                        height: 60%;
     
                         #bottomSideRightPart{
                             width: 55%;
@@ -245,54 +245,85 @@ onMounted(async () => {
     
                 #rightPart{
                     width: v.$full-percentage-value;
-                    height: 30%;
+                    height: 48%;
                     margin-top: 20px;
-                    background-color: red;
                 
                     #rightPartTopSide{
                         height: v.$full-percentage-value;
-                        height: 50%;
+                        height: 65%;
                         width: 100%;
-                        background-color: orangered;
                     }
 
                     #rightPartBottomSide{
-                        background-color: green;
+                        height: 32%;
                     }
                 }
             }
             
             footer#footer{
-                height: 8%;
+                height: 5%;
+                background-color: yellow;
             }
         }
     }
 
     @media screen and (max-width: 600px){
         #weatherDataMainContainer{
+            header#header{
+                height: 7%;
+            }
+
             #weatherDataContainer{
+                background-color: aqua;
+                margin-top: 20px;
+
                 #leftPart{
+                    background-color: red;
+
+                    #leftPartTopSide{
+                        background-color: yellow;
+                        height: 28%;
+                        margin-bottom: 20px;
+                    }
+
                     #leftPartBottomSide{
                         flex-direction: column;
+                        background-color: blue;
+                        height: 70%;
     
                         #bottomSideLeftPart{
                             width: v.$full-percentage-value;
+                            background-color: orangered;
                         }
     
                         #bottomSideRightPart{
                             width: v.$full-percentage-value;
                             margin-top: 20px;
+                            background-color: pink;
     
                             #airQuality{
                                 padding: 10px 0px;
+                                background-color: black;
                             }
     
                             #sunsetAndFeelsLikeContainer{
                                 margin-top: 20px;
+                                background-color: antiquewhite;
                             }
                         }
                     }
                 }
+
+                #rightPart{
+                    background-color: crimson;
+                    height: 39%;
+
+                }
+            }
+
+            footer#footer{
+                height: 3%;
+                background-color: rgb(51, 255, 0);
             }
         }
     }
